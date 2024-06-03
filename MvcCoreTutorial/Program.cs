@@ -5,8 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DatabaseContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+builder.Services.AddDbContext<DatabaseContext>();
 //whatever services are needed in application will be declared here
 
 //..........................................
@@ -31,6 +30,6 @@ app.UseAuthorization();
 // it is a default url
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Person}/{action=AddPerson}/{id?}");
+    pattern: "{controller=Employee}/{action=Employees}/{id?}");
 
 app.Run();
